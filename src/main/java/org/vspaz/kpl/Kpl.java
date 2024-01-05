@@ -9,6 +9,8 @@ import java.nio.file.Paths;
 import java.util.Objects;
 
 public class Kpl {
+
+    static boolean hasError = false;
     private final String[] args;
 
     public Kpl(final String[] args) {
@@ -33,6 +35,7 @@ public class Kpl {
             String line = reader.readLine();
             if (Objects.isNull(line)) break;
             parse(line);
+            hasError = false;
         }
     }
 
@@ -49,5 +52,15 @@ public class Kpl {
         catch (Exception e) {
             System.out.printf("error occurred %s,\nexiting...\n", e);
         }
+    }
+
+    private static void reportError(int lineNumber, String where, String message) {
+        hasError = true;
+        System.out.printf("[line %d] Error %s: %s", lineNumber, where, message);
+
+    }
+
+    static void error(int lineNo, String where, String message) {
+        reportError(lineNo, where, message);
     }
 }
