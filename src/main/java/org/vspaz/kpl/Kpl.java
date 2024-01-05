@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.List;
 import java.util.Objects;
 
 public class Kpl {
@@ -23,7 +24,10 @@ public class Kpl {
     }
 
     private void parse(String sourceCode) {
-
+        Scanner scanner = new Scanner(sourceCode);
+        for (Token token : scanner.scanTokens()) {
+            System.out.println(token);
+        }
     }
 
     private void runPrompt() throws IOException {
