@@ -88,10 +88,9 @@ public class Scanner {
         addToken(STRING, value);
     }
 
-    private boolean isDigit(char c) {
+    static boolean isDigit(char c) {
         return c >= '0' && c <= '9';
     }
-
 
     private char peekNext() {
         if (current + 1 >= sourceCode.length()) return '\0';
