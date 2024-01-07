@@ -6,6 +6,11 @@ import static org.vspaz.kpl.TokenType.*;
 
 public class Scanner {
     private final String sourceCode;
+
+    public List<Token> getTokens() {
+        return tokens;
+    }
+
     private final List<Token> tokens = new ArrayList<>();
 
     private int start = 0;
